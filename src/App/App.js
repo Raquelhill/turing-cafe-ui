@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import './reservationData';
 import ReservationContainer from '../ReservationContainer/ReservationContainer';
+import Form from '../Form/Form';
 
 class App extends Component {
   constructor() {
@@ -79,6 +80,15 @@ class App extends Component {
     this.setState({
       reservationData: [...this.state.reservationData, newReservation],
     });
+  };
+
+  deleteReservation = (id) => {
+    console.log(id);
+    const filteredReservations = this.state.reservationData.filter(
+      (reservation) => reservation.id != reservation
+    );
+
+    this.setState({ reservationData: filteredReservations });
   };
 
   render() {
