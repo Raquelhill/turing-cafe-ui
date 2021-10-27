@@ -5,8 +5,8 @@ import ReservationContainer from '../ReservationContainer/ReservationContainer';
 import Form from '../Form/Form';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       reservationData: [
         {
@@ -77,13 +77,13 @@ class App extends Component {
   }
 
   addReservation = (newReservation) => {
+    console.log('hello');
     this.setState({
       reservationData: [...this.state.reservationData, newReservation],
     });
   };
 
   deleteReservation = (id) => {
-    console.log(id);
     const filteredReservations = this.state.reservationData.filter(
       (reservation) => reservation.id != reservation
     );
@@ -98,7 +98,10 @@ class App extends Component {
         <div className="resy-form"></div>
         <Form addReservation={this.addReservation} />
         <div className="resy-container">
-          <ReservationContainer reservationData={this.state.reservationData} />
+          <ReservationContainer
+            reservationData={this.state.reservationData}
+            deleteReservation={this.deleteReservation}
+          />
         </div>
       </div>
     );
