@@ -18,7 +18,7 @@ class Form extends Component {
     this.setState({ [event.target.name]: event.target.value });
   };
 
-  submitReservation = (event) => {
+  makeReservation = (event) => {
     event.preventDefault();
     console.log('hello');
     const newReservation = {
